@@ -1,0 +1,188 @@
+{
+  "options": {
+    "primary_time_dimension": "Order Date",
+    "dimensions": {
+      "Customer Name": "customer_name",
+      "Customer Segment": "customer_segment",
+      "Region": "region",
+      "State": "state",
+      "City": "city",
+      "Zip Code": "zip_code",
+      "Order Date": "order_date",
+      "Product Container": "product_container",
+      "Product Category": "product_category",
+      "Product Sub Category": "product_sub_category",
+      "Order Priority": "order_priority",
+      "Shipping Method": "ship_mode",
+      "Product Name": "product_name"
+    },
+    "metrics": {
+      "Sales": "sales",
+      "Total Sales": "sum:sales",
+      "Number of Sales": "count:sales",
+      "Average of Sales": "average:sales",
+      "Sum of Profit": "sum:profit",
+      "Total Orders": "sum:order_quantity",
+      "Total Shipping Cost": "sum:shipping_cost",
+      "Total Items Sold": "sum:order_quantity"
+    },
+    "filter": [
+      "Region",
+      "State",
+      "Customer Segment",
+      "Sales"
+    ],
+    "formatters": {
+      "Sales": "dollars",
+      "Total Sales": "dollars",
+      "Average of Sales": "dollars",
+      "Sum of Profit": "dollars",
+      "Total Shipping Cost": "dollars"
+    }
+  },
+  "components": [
+    [
+      {
+        "type": "primary-timeseries",
+        "title": "Timeseries",
+        "dimensions": {
+          "required": ["Product Category", "Customer Segment", "Region"],
+        },
+        "metrics": ["Total Sales", "Sales", "Number of Sales", "Sum of Profit"],
+        "types": ["area", "line", "bar"],
+        "layers": [
+          {
+            "type": "timeseries"
+          }
+        ]
+      }
+    ],
+    [
+      [
+        [
+          {
+            "type": "kpi",
+            "title": "Total Sales",
+            "dimensions": [],
+            "metrics": ["Total Sales"],
+            "layers": [
+              {
+                "type": "timeseries",
+                "tooltips": false,
+                "class": "viz-sparkline"
+              },
+              {
+                "type": "metric"
+              }
+            ],
+            "controls": false,
+            "granularities": false
+          },
+          {
+            "type": "kpi",
+            "title": "Average Order Size",
+            "metrics": ["Average of Sales"],
+            "dimensions": [],
+            "layers": [
+              {
+                "type": "timeseries",
+                "tooltips": false,
+                "class": "viz-sparkline"
+              },
+              {
+                "type": "metric"
+              }
+            ],
+            "controls": false,
+            "granularities": false
+          }
+        ],
+        [
+          {
+            "type": "kpi",
+            "title": "Orders",
+            "dimensions": [],
+            "metrics": ["Number of Sales"],
+            "layers": [
+              {
+                "type": "timeseries",
+                "tooltips": false,
+                "class": "viz-sparkline"
+              },
+              {
+                "type": "metric"
+              }
+            ],
+            "controls": false,
+            "granularities": false
+          },
+          {
+            "type": "kpi",
+            "title": "Items Sold",
+            "metrics": ["Total Items Sold"],
+            "dimensions": [],
+            "layers": [
+              {
+                "type": "timeseries",
+                "tooltips": false,
+                "class": "viz-sparkline"
+              },
+              {
+                "type": "metric"
+              }
+            ],
+            "controls": false,
+            "granularities": false
+          }
+        ]
+      ],
+      {
+        "type": "topn",
+        "title": "Top Geos",
+        "dimensions": {
+          "required": ["Region", "State", "City"]
+        },
+        "metrics": ["Total Sales", "Total Items Sold"],
+        "layers": [
+          {
+            "type": "topN",
+            "n": 10
+          }
+        ],
+        "granularities": false
+      },
+    ],
+    [
+      {
+        "type": "topn",
+        "title": "Top Customers",
+        "dimensions": {
+          "required": ["Customer Segment", "Customer Name"]
+        },
+        "metrics": ["Total Sales", "Total Items Sold"],
+        "layers": [
+          {
+            "type": "topN",
+            "n": 10
+          }
+        ],
+        "granularities": false
+      },
+      {
+        "type": "topn",
+        "title": "Top Products",
+        "dimensions": {
+          "required": ["Product Category", "Product Name"]
+        },
+        "metrics": ["Total Sales", "Total Items Sold"],
+        "layers": [
+          {
+            "type": "topN",
+            "n": 10
+          }
+        ],
+        "granularities": false
+      }
+    ]
+  ]
+}

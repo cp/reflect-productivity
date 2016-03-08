@@ -1,0 +1,4 @@
+# Ignore dev stuff
+*.sw[onp]
+/node_modules
+/build
