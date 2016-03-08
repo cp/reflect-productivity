@@ -11,24 +11,29 @@ $primary-color: $color-blue !default;
 $primary-color-hover: darken($primary-color, 10%);
 $color-component-background: #000;
 
+// Component Setup
+$viz-component-height: 350px !default;
+$component-title-color: inherit;
+
+$viz-container-background-color: #FFF !default;
+$viz-component-bg: $viz-container-background-color;
+
 $border-radius: 5px;
-$border-color: $color-grey-light;
+$border-color: $color-grey-light !default;
 
 //Typography
 $font-family: "Open Sans", sans-serif;
-$font-color: $color-grey;
+$font-color: $color-grey !default;
 
 // Color Implimentation
-$sparkline-color: $color-grey-light;
-
-$container-background-color: #FFF;
+$viz-sparkline-color: $color-grey-light !default;
 
 // Buttons
 $button-radius: $border-radius;
 
 $button-primary-bg: $primary-color;
 $button-primary-bg-hover: $primary-color;
-$button-primary-color: #FFF;
+$button-primary-color: $viz-container-background-color;
 $button-primary-border: $button-primary-bg;
 
 $button-disabled-bg: $color-grey-light;
@@ -36,8 +41,8 @@ $button-disabled-bg-hover: $color-grey-light;
 $button-disabled-color: $color-grey-light;
 $button-disabled-border: $color-grey-light;
 
-$button-white-bg: white;
-$button-white-bg-hover: white;
+$button-white-bg: $viz-container-background-color;
+$button-white-bg-hover: $viz-container-background-color;
 $button-white-color: $font-color;
 $button-white-border: $border-color;
 
@@ -49,18 +54,12 @@ $link-color-hover: $primary-color-hover;
 $row-padding: 15px;
 $component-header-font-size: 1.5em;
 
-// Component Setup
-$component-height: 350px !default;
-$component-title-color: inherit;
-$component-bg: #FFF;
-$container-background-color: #FFF;
-
 // Filters
 $add-filter-hover-color: $primary-color;
-$filters-bg: $component-bg;
+$filters-bg: $viz-component-bg;
 
 // Date Range Picker
-$datepicker-bg: #fff;
+$datepicker-bg: $viz-container-background-color;
 $datepicker-radius: $border-radius;
 $datepicker-preset-color: $primary-color;
 $datepicker-preset-bg-hover: $primary-color;
@@ -68,29 +67,26 @@ $datepicker-preset-color-hover: white;
 $datepicker-preset-bg-active: $primary-color;
 
 // Controls
-$controls-bg: $component-bg;
-
+$controls-bg: $viz-component-bg;
+$viz-controls-height: 38px;
 
 // Dropdown
-$dropdown-bg: $container-background-color;
+$dropdown-bg: $viz-container-background-color;
 $dropdown-field-bg: $primary-color;
 $dropdown-field-hover-bg: $primary-color-hover;
 $dropdown-bullet-color: $primary-color;
-$dropdown-color: $color-grey;
+$dropdown-color: $font-color;
 
 // Etc...
 $bg-mask-color: $color-grey;
 $bg-mask-opacity: 0.7;
 $viz-no-data-color: darken($color-grey-light, 20%);
-$pre-color: $color-grey-light;
-$pre-border-color: $color-grey;
-$pre-background-color: white;
 
 /// Date Picker
 
 // Preset ranges
 $date-range-color: $primary-color;
-$date-range-border: #FFF;
+$date-range-border: $viz-container-background-color;
 $date-range-hover-color: #FFF;
 $date-range-hover-bg: $primary-color;
 $date-range-hover-border: $primary-color;
@@ -131,8 +127,8 @@ $filter-dropdown-top: 68px; // Umm... fix this.
 $filter-dropdown-left: 60px;
 
 // Chart Types
-$btn-group-color: $color-grey-light;
-$btn-color: lighten($color-grey, 20%);
+$btn-group-color: $color-grey-light !default;
+$btn-color: $font-color;
 
 // View Control Buttons
 $view-controls-color: #6D7A87;

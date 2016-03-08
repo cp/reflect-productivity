@@ -10,17 +10,17 @@
   .viz-option.viz-button-group {
     .viz-btn {
       font-size: 12px;
-      color: $btn-color;
-      border: 1px solid $btn-group-color;
+      color: $font-color;
+      border: 1px solid $border-color;
       border-right-width: 0px;
-      background-color: #fff;
+      background-color: $viz-container-background-color;
 
       &:focus {
         outline: 0;
       }
 
       &.viz-selected, &:hover {
-        background-color: $btn-group-color;
+        background-color: $border-color;
       }
 
       &:first-of-type {

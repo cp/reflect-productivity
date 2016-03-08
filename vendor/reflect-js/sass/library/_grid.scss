@@ -5,7 +5,7 @@ $susy: (
   gutter-override: $row-padding
 );
 
-$kpi-height: ($component-height / 2) - ($row-padding / 2);
+$kpi-height: ($viz-component-height / 2) - ($row-padding / 2);
 
 .viz-view-container {
   margin-left: 0px -($row-padding / 2);
