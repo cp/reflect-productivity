@@ -1,6 +1,6 @@
 .viz {
   .viz-legend {
-    width: 150px;
+    width: $viz-legend-width;
     text-overflow: ellipsis;
 
     position: absolute;

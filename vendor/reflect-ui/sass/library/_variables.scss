@@ -54,6 +54,12 @@ $link-color-hover: $primary-color-hover;
 $row-padding: 15px;
 $component-header-font-size: 1.5em;
 
+// Component Setup
+$component-height: 350px !default;
+$component-title-color: inherit;
+$viz-component-bg: #FFF;
+$container-background-color: #FFF;
+
 // Filters
 $add-filter-hover-color: $primary-color;
 $filters-bg: $viz-component-bg;

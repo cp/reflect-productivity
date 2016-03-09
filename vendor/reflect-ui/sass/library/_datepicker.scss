@@ -187,7 +187,24 @@
       position: relative;
 
       &--otherMonth {
-        opacity: 0.5;
+        // NOTE: We're intentionally resetting a bunch of different things here
+        // to fix deeper issues with how the HTML is structured to drive this
+        // thing.
+        .viz-datepicker__CalendarSelection--segment {
+          background-color: $datepicker-bg;
+        }
+
+        .viz-datepicker__DateLabel {
+          color: $font-color;
+        }
+
+        &--is-highlighted {
+          .viz-datepicker__CalendarSelection--segment,
+          .viz-datepicker__CalendarSelection,
+          .viz-datepicker__CalendarHighlight.viz-datepicker__CalendarHighlight--single {
+            background-color: $datepicker-bg;
+          }
+        }
       }
 
       &--is-disabled {

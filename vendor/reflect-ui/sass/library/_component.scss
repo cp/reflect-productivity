@@ -1,4 +1,5 @@
 // Basic container styling
+$viz-empty-font-size: 18px;
 
 .viz-container {
   position: relative;
@@ -8,14 +9,14 @@
 
   .viz-empty {
     height: auto;
-    font-size: 40px;
-    line-height: 40px;
+    font-size: $viz-empty-font-size;
+    line-height: $viz-empty-font-size;
     text-align: center;
     width: 100%;
 
     position: absolute;
     top: 50%;
-    margin-top: -20px;
+    margin-top: -($viz-empty-font-size / 2);
   }
 
   &.viz-container-loading {
@@ -48,6 +49,10 @@
 .viz {
   height: 95%;
   float: top;
+}
+
+.reflect-viz {
+  height: 100%;
 }
 
 // KPI Styling
