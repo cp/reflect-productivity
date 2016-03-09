@@ -8,10 +8,14 @@ someone from Reflect will walk through this process with you.
 * A Reflect account.
 * A [Reflect API token](https://app.reflect.io/tokens)
 * An idea of what you'd like to build (dashboard, report, etc.).
+* Node and NPM.
 
 ## Getting Started
 
 ### 0. Clone this Repo
+
+You'll also need to setup Gulp and all the dependencies for running some of
+these tools.
 
 ```bash
 $ git clone git@github.com:reflect/reflect-boilerplate.git
