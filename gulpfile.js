@@ -41,14 +41,14 @@ gulp.task('download-reflect-ui', function() {
 
 gulp.task('update-reflect', function() {
   url = 'https://api-staging.reflect.io/v1/projects/'+REFLECT_PROJECT_SLUG+'/data-model'
-  exec("curl -u ':"+REFLECT_API_TOKEN+"' --data-binary @./data_model.json '"+url+"'");
+  exec("curl -XPUT -u ':"+REFLECT_API_TOKEN+"' --data-binary @./data_model.json '"+url+"'");
 });
 
 gulp.task('html', function() {
-  var manifest = fs.readFileSync('./manifest.json', 'utf-8');
+  var view_configuration = fs.readFileSync('./view_configuration.json', 'utf-8');
 
   gulp.src('src/index.html')
-    .pipe(replace('{{manifest}}', manifest))
+    .pipe(replace('{{view_configuration}}', view_configuration))
     .pipe(replace('{{api_token}}', REFLECT_API_TOKEN))
     .pipe(gulp.dest('build'));
 });

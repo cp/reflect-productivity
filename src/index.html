@@ -13,9 +13,9 @@
 
   <script type="text/javascript">
     var REFLECT_API_TOKEN = '{{api_token}}',
-        manifest = {{manifest}};
+        view_configuration = {{view_configuration}};
 
     var ui = new ReflectUI(REFLECT_API_TOKEN, "https://api-staging.reflect.io"),
-        view = ui.view(document.getElementById('view1'), manifest);
+        view = ui.view(document.getElementById('view1'), view_configuration);
   </script>
 </html>
