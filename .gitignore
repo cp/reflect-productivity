@@ -5,4 +5,6 @@
 
 # Ignore non-boilerplate stuff
 /data_model.json
-/manifest.json
+/view_configuration.json
+/credential.json
+/project.json

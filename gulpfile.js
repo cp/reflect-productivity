@@ -16,7 +16,7 @@ var fs = require('fs'),
 // with Reflect services.
 //
 const REFLECT_API_TOKEN = '',
-      REFLECT_PROJECT_NAME = '';
+      REFLECT_PROJECT_SLUG = '';
 
 //
 // This might need to be updated incrementally.
@@ -40,7 +40,7 @@ gulp.task('download-reflect-ui', function() {
 });
 
 gulp.task('update-reflect', function() {
-  url = 'https://api-staging.reflect.io/v1/projects/'+REFLECT_PROJECT_NAME+'/data-model'
+  url = 'https://api-staging.reflect.io/v1/projects/'+REFLECT_PROJECT_SLUG+'/data-model'
   exec("curl -u ':"+REFLECT_API_TOKEN+"' --data-binary @./data_model.json '"+url+"'");
 });
 
