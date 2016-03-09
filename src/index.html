@@ -7,6 +7,15 @@
     <link rel="stylesheet" href="/styles/styles.css" />
   </head>
   <body>
-    Hello, World!
+    <div id="view1">
+    </div>
   </body>
+
+  <script type="text/javascript">
+    var REFLECT_API_TOKEN = '{{api_token}}',
+        manifest = {{manifest}};
+
+    var ui = new ReflectUI(REFLECT_API_TOKEN, "https://api-staging.reflect.io"),
+        view = ui.view(document.getElementById('view1'), manifest);
+  </script>
 </html>

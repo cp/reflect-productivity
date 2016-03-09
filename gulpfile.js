@@ -1,9 +1,12 @@
 var fs = require('fs'),
+    path = require('path'),
     gulp = require('gulp'),
+    exec = require('child_process').exec,
     unzip = require('gulp-unzip'),
     sass = require('gulp-sass'),
     imports = require('gulp-imports'),
     rename = require('gulp-rename'),
+    upload = require('gulp-upload'),
     webserver = require('gulp-webserver'),
     replace = require('gulp-replace'),
     download = require('gulp-download');
@@ -12,35 +15,33 @@ var fs = require('fs'),
 // Replace this with the API token that you want to use when authenticating
 // with Reflect services.
 //
-var REFLECT_API_TOKEN = '',
-    REFLECT_PROJECT_NAME = '';
+const REFLECT_API_TOKEN = '',
+      REFLECT_PROJECT_NAME = '';
 
 //
 // This might need to be updated incrementally.
 //
-var REFLECT_LATEST_URL = "https://s3.amazonaws.com/reflect-io/reflect-ui-0.1.0.zip";
+const REFLECT_UI_LATEST_URL = "https://s3.amazonaws.com/reflect-io/reflect-ui-latest.zip";
+const REFLECT_JS_LATEST_URL = "https://s3.amazonaws.com/reflect-io/reflect-latest.zip";
 
 gulp.task('compile', ['html', 'js', 'sass']);
 gulp.task('default', ['compile', 'serve', 'watch']);
 
-gulp.task('update-vendor', function() {
-  download(REFLECT_LATEST_URL)
+gulp.task('download-reflect-js', function() {
+  download(REFLECT_JS_LATEST_URL)
     .pipe(unzip())
-    .pipe(gulp.dest("vendor/reflect/"));
+    .pipe(gulp.dest("vendor/reflect-js/"));
+});
+
+gulp.task('download-reflect-ui', function() {
+  download(REFLECT_UI_LATEST_URL)
+    .pipe(unzip())
+    .pipe(gulp.dest("vendor/reflect-ui/"));
 });
 
 gulp.task('update-reflect', function() {
-  var options = {
-    server: 'https://:'+REFLECT_API_TOKEN+'@api-staging.reflect.io/v1/projects/'+REFLECT_PROJECT_NAME+'/data-model',
-    data: {
-      fileName: function(file) {
-        return path.relative(__dirname, file.path)
-      }
-    }
-  };
-
-  gulp.src('./manifest.json')
-    .upload(options)
+  url = 'https://api-staging.reflect.io/v1/projects/'+REFLECT_PROJECT_NAME+'/data-model'
+  exec("curl -u ':"+REFLECT_API_TOKEN+"' --data-binary @./data_model.json '"+url+"'");
 });
 
 gulp.task('html', function() {

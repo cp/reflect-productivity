@@ -2,3 +2,7 @@
 *.sw[onp]
 /node_modules
 /build
+
+# Ignore non-boilerplate stuff
+/data_model.json
+/manifest.json
