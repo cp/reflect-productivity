@@ -15,8 +15,8 @@ var fs = require('fs'),
 // Replace this with the API token that you want to use when authenticating
 // with Reflect services.
 //
-const REFLECT_API_TOKEN = '',
-      REFLECT_PROJECT_SLUG = '';
+const REFLECT_API_TOKEN = 'c77b12dd-a370-48be-9b94-ee388b14510c',
+      REFLECT_PROJECT_SLUG = 'reflect-productivity';
 
 //
 // This might need to be updated incrementally.
@@ -67,7 +67,7 @@ gulp.task('sass', function() {
 
 gulp.task('serve', function() {
   gulp.src('build')
-    .pipe(webserver());
+    .pipe(webserver({port: 4000}));
 });
 
 gulp.task('watch', function() {

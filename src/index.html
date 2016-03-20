@@ -7,7 +7,9 @@
     <link rel="stylesheet" href="/styles/styles.css" />
   </head>
   <body>
-    <div id="view1">
+    <div class="container">
+      <div id="view1">
+      </div>
     </div>
   </body>
 
@@ -15,7 +17,9 @@
     var REFLECT_API_TOKEN = '{{api_token}}',
         view_configuration = {{view_configuration}};
 
-    var ui = new ReflectUI(REFLECT_API_TOKEN, "https://api-staging.reflect.io"),
-        view = ui.view(document.getElementById('view1'), view_configuration);
+    var ui = new ReflectUI(REFLECT_API_TOKEN),
+        projectSlug = 'reflect-productivity',
+        viewSlug = 'productivity-dashboard',
+        view = ui.view(document.getElementById('view1'), projectSlug, viewSlug);
   </script>
 </html>

@@ -1,2 +1,22 @@
+$primary-color: #3180B9;
+$viz-legend-width: 150px;
+$viz-primary-color: $primary-color;
+$viz-palette-base: $primary-color;
+$viz-component-height: 300px;
+
+.container {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+
+  #view1 {
+    position: relative;
+  }
+}
+
+.viz-container.viz-kpi {
+  height: 150px;
+}
+
 @import "../../vendor/reflect-js/sass/reflect";
 @import "../../vendor/reflect-ui/sass/reflect-ui";
