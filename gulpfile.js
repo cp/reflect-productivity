@@ -45,10 +45,7 @@ gulp.task('update-reflect', function() {
 });
 
 gulp.task('html', function() {
-  var view_configuration = fs.readFileSync('./view_configuration.json', 'utf-8');
-
   gulp.src('src/index.html')
-    .pipe(replace('{{view_configuration}}', view_configuration))
     .pipe(replace('{{api_token}}', REFLECT_API_TOKEN))
     .pipe(gulp.dest('build'));
 });

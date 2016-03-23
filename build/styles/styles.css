@@ -5,11 +5,6 @@
   max-width: 900px;
   margin-left: auto;
   margin-right: auto; }
-  .container #view1 {
-    position: relative; }
-
-.viz-container.viz-kpi {
-  height: 150px; }
 
 .viz-loading-wrapper {
   display: flex;
@@ -3248,7 +3243,7 @@
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  width: 33%;
+  width: 33.3333%;
   float: left;
   padding-left: 7.5px;
   padding-right: 7.5px; }
@@ -3272,7 +3267,8 @@
   position: relative;
   height: 300px;
   border: 1px solid #EFEFEF;
-  border-radius: 5px; }
+  border-radius: 5px;
+  padding: 15px; }
   .viz-container .viz-empty {
     height: auto;
     font-size: 18px;
@@ -3303,17 +3299,16 @@
 
 .viz-kpi {
   overflow: hidden; }
-  .viz-kpi .reflect-viz .viz-area {
+  .viz-kpi .viz-area {
+    top: 60px;
+    height: 42.5px;
     position: absolute;
-    bottom: 0;
-    height: 40px; }
+    bottom: 0; }
   .viz-kpi .viz-visualization {
-    position: absolute;
     top: 40px;
     bottom: 0;
     left: 0;
-    right: 0;
-    margin-right: -1px; }
+    right: 0; }
   .viz-kpi .viz-group {
     height: 100%; }
     .viz-kpi .viz-group .viz-loading-wrapper {
@@ -3329,31 +3324,6 @@
   .viz-kpi .viz-area .viz-series.viz-series-0.viz-color-0.viz-area-path {
     fill: #EFEFEF;
     stroke: #EFEFEF; }
-
-th {
-  cursor: pointer; }
-  th.viz-sorted .viz-arrow, th.viz-sorted span {
-    color: #6D7A87; }
-
-.viz-datagrid {
-  height: inherit; }
-  .viz-datagrid .viz-datagrid-header {
-    background-color: #EFEFEF;
-    padding: 10px; }
-  .viz-datagrid .viz-datagrid-footer {
-    background-color: #EFEFEF;
-    padding: 0px 10px;
-    height: 40px;
-    line-height: 40px;
-    width: 100%; }
-  .viz-datagrid .viz-dimension-value {
-    font-weight: bold; }
-  .viz-datagrid .viz-metric-value {
-    float: right; }
-  .viz-datagrid .viz-loading-wrapper {
-    margin-top: 100px; }
-  .viz-datagrid.viz-container {
-    min-height: 300px; }
 
 .viz-options {
   background-color: #FFF;
@@ -3387,31 +3357,20 @@ th {
   height: 150px; }
 
 .viz-title {
-  background-color: #FFF;
   color: inherit;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  position: absolute;
-  top: 15px;
-  left: 15px;
   font-size: 1.5em;
   margin-bottom: 0;
   padding: 0; }
 
 .viz-controls {
-  background-color: #FFF;
-  position: absolute;
-  top: 28px; }
-  .viz-controls form {
-    display: inline-block; }
+  background-color: #FFF; }
 
 .viz-visualization {
   position: absolute;
-  top: 65px;
-  bottom: 0;
   left: 0;
-  right: 0; }
+  bottom: 0;
+  height: 235px;
+  width: 100%; }
 
 .viz-required-dimensions, .viz-optional-dimensions, .viz-optional-metrics {
   display: inline-block; }
@@ -3435,29 +3394,12 @@ th {
   position: absolute;
   right: 15px;
   top: 15px; }
-  .viz-options .viz-option.viz-button-group .viz-btn {
-    font-size: 12px;
-    color: #6D7A87;
-    border: 1px solid #EFEFEF;
-    border-right-width: 0px;
-    background-color: #FFF; }
-    .viz-options .viz-option.viz-button-group .viz-btn:focus {
-      outline: 0; }
-    .viz-options .viz-option.viz-button-group .viz-btn.viz-selected, .viz-options .viz-option.viz-button-group .viz-btn:hover {
-      background-color: #EFEFEF; }
-    .viz-options .viz-option.viz-button-group .viz-btn:first-of-type {
-      border-top-left-radius: 5px;
-      border-bottom-left-radius: 5px; }
-    .viz-options .viz-option.viz-button-group .viz-btn:last-of-type {
-      border-right-width: 1px;
-      border-top-right-radius: 5px;
-      border-bottom-right-radius: 5px; }
+  .viz-options .viz-button-group .viz-button {
+    padding-top: 4px;
+    padding: 3px 5px 3px 5px; }
 
 .viz-controls {
-  background-color: #FFF;
-  position: absolute;
-  top: 44px;
-  left: 15px; }
+  background-color: #FFF; }
   .viz-controls .viz-separator {
     color: #999; }
   .viz-controls .viz-control-dimensions, .viz-controls .viz-control-metrics {
@@ -3532,6 +3474,7 @@ th {
     background-color: #FFF; }
 
 .viz-filters {
+  position: relative;
   border-radius: 5px;
   border: 1px solid #EFEFEF;
   height: 38px; }
@@ -3559,8 +3502,8 @@ th {
     width: 100%;
     font-size: 16px; }
   .viz-filters .viz-add-filter-form.viz-dropdown-open {
-    top: 68px;
-    left: 60px; }
+    top: 0px;
+    left: 45px; }
   .viz-filters .viz-filter {
     position: relative;
     padding-right: 12px;
@@ -3657,6 +3600,10 @@ th {
 .viz-datagrid {
   min-height: 100px;
   height: inherit; }
+  .viz-datagrid th {
+    cursor: pointer; }
+    .viz-datagrid th.viz-sorted .viz-arrow, .viz-datagrid th.viz-sorted span {
+      color: #6D7A87; }
   .viz-datagrid .viz-datagrid-header {
     background-color: #EFEFEF;
     padding: 10px; }
@@ -3689,6 +3636,10 @@ th {
     height: 40px;
     line-height: 40px;
     width: 100%; }
+  .viz-datagrid .viz-loading-wrapper {
+    margin-top: 100px; }
+  .viz-datagrid.viz-container {
+    min-height: 350px; }
 
 .pull-left {
   float: left; }
@@ -3724,6 +3675,25 @@ th {
   .viz-button.viz-button-white:hover {
     background: #FFF; }
 
+.viz-button-group .viz-button {
+  font-size: 12px;
+  color: #6D7A87;
+  border: 1px solid #EFEFEF;
+  border-right-width: 0px;
+  background-color: #fff;
+  border-radius: 0; }
+  .viz-button-group .viz-button:focus {
+    outline: 0; }
+  .viz-button-group .viz-button.viz-selected, .viz-button-group .viz-button:hover {
+    background-color: #EFEFEF; }
+  .viz-button-group .viz-button:first-of-type {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px; }
+  .viz-button-group .viz-button:last-of-type {
+    border-right-width: 1px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px; }
+
 .viz-form-control {
   width: 100%;
   vertical-align: middle;
@@ -3749,8 +3719,9 @@ th {
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #3180B9; }
 
 .viz-datepicker-container {
+  width: 800px;
   float: right;
-  right: 15px;
+  right: 0px;
   z-index: 1500;
   position: absolute;
   background-color: #FFF;
@@ -3783,207 +3754,212 @@ th {
         border: 1px solid #3180B9;
         background: #3180B9; }
 
-.datepicker .datepicker-button {
-  margin-top: 15px;
-  margin-bottom: 15px;
-  font-size: 15px;
-  border: 1px solid #EFEFEF;
-  border-radius: 5px;
-  padding: 7.5px 15px 7.5px 15px;
-  cursor: pointer;
-  float: right;
-  max-width: 300px; }
-  .datepicker .datepicker-button .date {
-    font-weight: bold; }
-
-.datepicker .viz-datepicker {
-  padding-bottom: 10px;
-  display: block;
-  position: relative;
-  user-select: none; }
-  .datepicker .viz-datepicker__PaginationArrow {
-    color: #6D7A87;
-    border: 0;
+.datepicker {
+  position: relative; }
+  .datepicker > .viz-button {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 15px;
+    border: 1px solid #EFEFEF;
+    border-radius: 5px;
+    padding: 7.5px 15px 7.5px 15px;
     cursor: pointer;
+    float: right;
+    max-width: 300px; }
+    .datepicker > .viz-button .date {
+      color: #6D7A87;
+      font-weight: bold; }
+    .datepicker > .viz-button .viz-separator {
+      color: #999; }
+  .datepicker .viz-datepicker {
+    padding-bottom: 10px;
     display: block;
-    height: 35px;
-    outline: none;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    text-align: center;
-    top: 0;
-    white-space: nowrap;
-    width: 35px;
-    z-index: 1; }
-    .datepicker .viz-datepicker__PaginationArrow--previous {
-      left: 20px; }
-    .datepicker .viz-datepicker__PaginationArrow--next {
-      right: 20px; }
-    .datepicker .viz-datepicker__PaginationArrow:hover {
-      color: #3180B9; }
-  .datepicker .viz-datepicker__PaginationArrowIcon--is-disabled {
-    opacity: .25; }
-  .datepicker .viz-datepicker__PaginationArrowIcon--previous {
-    right: 9.5px;
-    top: 9.5px; }
-  .datepicker .viz-datepicker__PaginationArrowIcon--next {
-    left: 9.5px;
-    top: 9.5px; }
-  .datepicker .viz-datepicker__Month {
-    color: #6D7A87;
-    display: inline-block;
-    margin: 0 20px;
     position: relative;
-    user-select: none;
-    width: 275px; }
-  .datepicker .viz-datepicker__MonthHeader {
-    color: #6D7A87;
-    font-size: 16px;
-    height: 35px;
-    line-height: 35px;
-    position: relative;
-    text-align: center; }
-  .datepicker .viz-datepicker__MonthHeaderLabel {
-    font-weight: bold;
-    display: inline-block;
-    position: relative; }
-  .datepicker .viz-datepicker__MonthHeaderSelect {
-    background: #e4e4e4;
-    border: 0;
-    cursor: pointer;
-    display: inline-block;
-    height: 100%;
-    left: 0;
-    margin: 0;
-    opacity: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    z-index: 5; }
-  .datepicker .viz-datepicker__MonthDates {
-    margin: 0;
-    width: 100%; }
-  .datepicker .viz-datepicker__WeekdayHeading, .datepicker .viz-datepicker__Date {
-    font-size: 16px;
-    line-height: 1.4;
-    padding: 10px 0;
-    text-align: center;
-    width: 14.285714285714286%; }
-  .datepicker .viz-datepicker__WeekdayHeading abbr[title] {
-    border-bottom-width: 0;
-    color: #6D7A87;
-    cursor: pointer;
-    font-size: inherit;
-    text-decoration: none; }
-  .datepicker .viz-datepicker__Date {
-    cursor: pointer;
-    overflow: hidden;
-    position: relative; }
-    .datepicker .viz-datepicker__Date--otherMonth .viz-datepicker__CalendarSelection--segment {
-      background-color: #FFF; }
-    .datepicker .viz-datepicker__Date--otherMonth .viz-datepicker__DateLabel {
-      color: #6D7A87; }
-    .datepicker .viz-datepicker__Date--otherMonth--is-highlighted .viz-datepicker__CalendarSelection--segment,
-    .datepicker .viz-datepicker__Date--otherMonth--is-highlighted .viz-datepicker__CalendarSelection,
-    .datepicker .viz-datepicker__Date--otherMonth--is-highlighted .viz-datepicker__CalendarHighlight.viz-datepicker__CalendarHighlight--single {
-      background-color: #FFF; }
-    .datepicker .viz-datepicker__Date--is-disabled {
-      color: #cdcdd1;
-      cursor: default; }
-    .datepicker .viz-datepicker__Date--is-selected {
-      color: #fff; }
-    .datepicker .viz-datepicker__Date--is-highlighted {
-      color: #fff; }
-  .datepicker .viz-datepicker__CalendarDatePeriod {
-    bottom: 0;
-    position: absolute;
-    top: 0; }
-    .datepicker .viz-datepicker__CalendarDatePeriod--am {
+    user-select: none; }
+    .datepicker .viz-datepicker__PaginationArrow {
+      color: #6D7A87;
+      border: 0;
+      cursor: pointer;
+      display: block;
+      height: 35px;
+      outline: none;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      text-align: center;
+      top: 0;
+      white-space: nowrap;
+      width: 35px;
+      z-index: 1; }
+      .datepicker .viz-datepicker__PaginationArrow--previous {
+        left: 20px; }
+      .datepicker .viz-datepicker__PaginationArrow--next {
+        right: 20px; }
+      .datepicker .viz-datepicker__PaginationArrow:hover {
+        color: #3180B9; }
+    .datepicker .viz-datepicker__PaginationArrowIcon--is-disabled {
+      opacity: .25; }
+    .datepicker .viz-datepicker__PaginationArrowIcon--previous {
+      right: 9.5px;
+      top: 9.5px; }
+    .datepicker .viz-datepicker__PaginationArrowIcon--next {
+      left: 9.5px;
+      top: 9.5px; }
+    .datepicker .viz-datepicker__Month {
+      color: #6D7A87;
+      display: inline-block;
+      margin: 0 20px;
+      position: relative;
+      user-select: none;
+      width: 275px; }
+    .datepicker .viz-datepicker__MonthHeader {
+      color: #6D7A87;
+      font-size: 16px;
+      height: 35px;
+      line-height: 35px;
+      position: relative;
+      text-align: center; }
+    .datepicker .viz-datepicker__MonthHeaderLabel {
+      font-weight: bold;
+      display: inline-block;
+      position: relative; }
+    .datepicker .viz-datepicker__MonthHeaderSelect {
+      background: #e4e4e4;
+      border: 0;
+      cursor: pointer;
+      display: inline-block;
+      height: 100%;
       left: 0;
-      right: 50%; }
-    .datepicker .viz-datepicker__CalendarDatePeriod--pm {
-      left: 50%;
-      right: 0; }
-  .datepicker .viz-datepicker__CalendarSelection {
-    background-color: #3180B9;
-    bottom: 0px;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0px; }
-    .datepicker .viz-datepicker__CalendarSelection--inOtherMonth {
-      opacity: .7; }
-    .datepicker .viz-datepicker__CalendarSelection--start {
-      border-bottom-left-radius: 5px;
-      border-right-width: 0;
-      border-top-left-radius: 5px;
-      left: 0px; }
-    .datepicker .viz-datepicker__CalendarSelection--end {
-      border-bottom-right-radius: 5px;
-      border-left-width: 0;
-      border-top-right-radius: 5px;
-      right: 0px; }
-    .datepicker .viz-datepicker__CalendarSelection--segment {
-      background-color: #75b0db;
-      border-left-width: 0;
-      border-right-width: 0; }
-    .datepicker .viz-datepicker__CalendarSelection--single {
-      border-radius: 5px;
-      left: 0px;
-      right: 0px; }
-    .datepicker .viz-datepicker__CalendarSelection--is-pending {
-      border-width: 0; }
-  .datepicker .viz-datepicker__CalendarHighlight {
-    background-color: rgba(255, 255, 255, 0.25);
-    bottom: 0px;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0px; }
-    .datepicker .viz-datepicker__CalendarHighlight--inOtherMonth {
-      opacity: 0; }
-    .datepicker .viz-datepicker__CalendarHighlight--start {
-      border-bottom-left-radius: 5px;
-      border-right-width: 0;
-      border-top-left-radius: 5px;
-      left: 0px; }
-    .datepicker .viz-datepicker__CalendarHighlight--end {
-      border-bottom-right-radius: 5px;
-      border-left-width: 0;
-      border-top-right-radius: 5px;
-      right: 0px; }
-    .datepicker .viz-datepicker__CalendarHighlight--segment {
-      border-left-width: 0;
-      border-right-width: 0; }
-    .datepicker .viz-datepicker__CalendarHighlight--single {
+      margin: 0;
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      z-index: 5; }
+    .datepicker .viz-datepicker__MonthDates {
+      margin: 0;
+      width: 100%; }
+    .datepicker .viz-datepicker__WeekdayHeading, .datepicker .viz-datepicker__Date {
+      font-size: 16px;
+      line-height: 1.4;
+      padding: 10px 0;
+      text-align: center;
+      width: 14.285714285714286%; }
+    .datepicker .viz-datepicker__WeekdayHeading abbr[title] {
+      border-bottom-width: 0;
+      color: #6D7A87;
+      cursor: pointer;
+      font-size: inherit;
+      text-decoration: none; }
+    .datepicker .viz-datepicker__Date {
+      cursor: pointer;
+      overflow: hidden;
+      position: relative; }
+      .datepicker .viz-datepicker__Date--otherMonth .viz-datepicker__CalendarSelection--segment {
+        background-color: #FFF; }
+      .datepicker .viz-datepicker__Date--otherMonth .viz-datepicker__DateLabel {
+        color: #6D7A87; }
+      .datepicker .viz-datepicker__Date--otherMonth--is-highlighted .viz-datepicker__CalendarSelection--segment,
+      .datepicker .viz-datepicker__Date--otherMonth--is-highlighted .viz-datepicker__CalendarSelection,
+      .datepicker .viz-datepicker__Date--otherMonth--is-highlighted .viz-datepicker__CalendarHighlight.viz-datepicker__CalendarHighlight--single {
+        background-color: #FFF; }
+      .datepicker .viz-datepicker__Date--is-disabled {
+        color: #cdcdd1;
+        cursor: default; }
+      .datepicker .viz-datepicker__Date--is-selected {
+        color: #fff; }
+      .datepicker .viz-datepicker__Date--is-highlighted {
+        color: #fff; }
+    .datepicker .viz-datepicker__CalendarDatePeriod {
+      bottom: 0;
+      position: absolute;
+      top: 0; }
+      .datepicker .viz-datepicker__CalendarDatePeriod--am {
+        left: 0;
+        right: 50%; }
+      .datepicker .viz-datepicker__CalendarDatePeriod--pm {
+        left: 50%;
+        right: 0; }
+    .datepicker .viz-datepicker__CalendarSelection {
       background-color: #3180B9;
-      border-radius: 5px;
-      left: 0px;
-      right: 0px; }
-  .datepicker .viz-datepicker__HalfDateStates {
-    bottom: -50px;
-    left: -50px;
-    position: absolute;
-    right: -50px;
-    top: -50px;
-    transform: rotate(30deg); }
-  .datepicker .viz-datepicker__FullDateStates {
-    bottom: 0;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0; }
-  .datepicker .viz-datepicker__DateLabel {
-    display: block;
-    position: relative;
-    text-align: center;
-    width: 100%;
-    z-index: 1; }
+      bottom: 0px;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0px; }
+      .datepicker .viz-datepicker__CalendarSelection--inOtherMonth {
+        opacity: .7; }
+      .datepicker .viz-datepicker__CalendarSelection--start {
+        border-bottom-left-radius: 5px;
+        border-right-width: 0;
+        border-top-left-radius: 5px;
+        left: 0px; }
+      .datepicker .viz-datepicker__CalendarSelection--end {
+        border-bottom-right-radius: 5px;
+        border-left-width: 0;
+        border-top-right-radius: 5px;
+        right: 0px; }
+      .datepicker .viz-datepicker__CalendarSelection--segment {
+        background-color: #75b0db;
+        border-left-width: 0;
+        border-right-width: 0; }
+      .datepicker .viz-datepicker__CalendarSelection--single {
+        border-radius: 5px;
+        left: 0px;
+        right: 0px; }
+      .datepicker .viz-datepicker__CalendarSelection--is-pending {
+        border-width: 0; }
+    .datepicker .viz-datepicker__CalendarHighlight {
+      background-color: rgba(255, 255, 255, 0.25);
+      bottom: 0px;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0px; }
+      .datepicker .viz-datepicker__CalendarHighlight--inOtherMonth {
+        opacity: 0; }
+      .datepicker .viz-datepicker__CalendarHighlight--start {
+        border-bottom-left-radius: 5px;
+        border-right-width: 0;
+        border-top-left-radius: 5px;
+        left: 0px; }
+      .datepicker .viz-datepicker__CalendarHighlight--end {
+        border-bottom-right-radius: 5px;
+        border-left-width: 0;
+        border-top-right-radius: 5px;
+        right: 0px; }
+      .datepicker .viz-datepicker__CalendarHighlight--segment {
+        border-left-width: 0;
+        border-right-width: 0; }
+      .datepicker .viz-datepicker__CalendarHighlight--single {
+        background-color: #3180B9;
+        border-radius: 5px;
+        left: 0px;
+        right: 0px; }
+    .datepicker .viz-datepicker__HalfDateStates {
+      bottom: -50px;
+      left: -50px;
+      position: absolute;
+      right: -50px;
+      top: -50px;
+      transform: rotate(30deg); }
+    .datepicker .viz-datepicker__FullDateStates {
+      bottom: 0;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0; }
+    .datepicker .viz-datepicker__DateLabel {
+      display: block;
+      position: relative;
+      text-align: center;
+      width: 100%;
+      z-index: 1; }
 
 .viz-view-container {
   -webkit-font-smoothing: auto !important;
-  font-family: "Open Sans", sans-serif !important; }
+  font-family: "Open Sans", sans-serif !important;
+  font-size: 13px !important; }
 
 .viz-headline {
   margin-top: 19px; }
@@ -4003,14 +3979,6 @@ th {
     line-height: 30px;
     font-weight: 400;
     margin-left: 6px; }
-
-.main-loading-wrapper {
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center; }
 
 .viz-mask {
   opacity: 0.7;
