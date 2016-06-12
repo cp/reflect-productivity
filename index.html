@@ -3,11 +3,19 @@
   <head>
     <meta charset="utf-8">
     <title>Reflect Productivity</title>
-
     <script type="text/javascript" src="https://cdn.reflect.io/latest/reflect.js"></script>
     <link rel="stylesheet" href="https://cdn.reflect.io/latest/reflect.css" />
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link href="style.css" rel="stylesheet">
   </head>
   <body>
+    <div class="view-select-form">
+      <select class="form-control" id="view-selector">
+        <option value="productivity-dashboard">Primary dashboard</option>
+        <option value="simple-dashboard-view">Simple dashboard</option>
+        <option value="blog-post-dashboard">Comparison</option>
+      </select>
+    </div>
     <div class="container">
       <div id="view1">
       </div>
@@ -15,11 +23,23 @@
   </body>
 
   <script type="text/javascript">
-    var REFLECT_API_TOKEN = 'c77b12dd-a370-48be-9b94-ee388b14510c';
+    const REFLECT_API_TOKEN = 'c77b12dd-a370-48be-9b94-ee388b14510c',
+          dropdown = document.getElementById('view-selector');
+
+    var onSelectChange = function(){
+      render(dropdown.value);
+    }
+
+    var render = function(view) {
+      ui.view(document.getElementById('view1'), projectSlug, view);
+    }
 
     var ui = new ReflectUI(REFLECT_API_TOKEN),
         projectSlug = 'reflect-productivity',
-        viewSlug = 'blog-post-break',
-        view = ui.view(document.getElementById('view1'), projectSlug, viewSlug);
+        viewSlug = 'productivity-dashboard';
+
+    render(viewSlug)
+
+    dropdown.addEventListener('change', onSelectChange);
   </script>
 </html>
