@@ -5,6 +5,7 @@
     <title>Reflect Productivity</title>
     <script type="text/javascript" src="https://cdn.reflect.io/development/reflect.js"></script>
     <link rel="stylesheet" href="https://cdn.reflect.io/development/reflect.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link href="style.css" rel="stylesheet">
   </head>
@@ -29,7 +30,22 @@
       render(dropdown.value);
     }
 
+    var getDates = function() {
+      var twoMonthAgo = moment().subtract(2, 'month').format();
+      var oneMonthAgo = moment().subtract(1, 'month').format();
+      var now = moment().format();
+
+      return [[twoMonthAgo, oneMonthAgo], [oneMonthAgo, now]]
+    }
+
     var render = function(view) {
+      var dates = [];
+
+      if (view === 'comparative') {
+        dates = getDates();
+      }
+
+      ui.withDates.apply(ui, dates);
       ui.view(document.getElementById('view1'), projectSlug, view);
     }
 
