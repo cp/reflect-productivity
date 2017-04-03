@@ -12,8 +12,8 @@
   <body>
     <div class="view-select-form">
       <select class="form-control" id="view-selector">
-        <option value="simple-dashboard-view">Simple dashboard</option>
-        <option value="comparative">Comparison</option>
+        <option value="ZFSzsfnRSpaMHL9Wae3lHw">Simple dashboard</option>
+        <option value="NIaHiV3nTLKGl2pl-f_YBg">Comparison</option>
       </select>
     </div>
     <div class="container">
@@ -23,8 +23,9 @@
   </body>
 
   <script type="text/javascript">
-    const REFLECT_API_TOKEN = 'c77b12dd-a370-48be-9b94-ee388b14510c',
-          dropdown = document.getElementById('view-selector');
+    const dropdown = document.getElementById('view-selector');
+    const DASHBOARD = 'ZFSzsfnRSpaMHL9Wae3lHw';
+    const COMPARATIVE = 'NIaHiV3nTLKGl2pl-f_YBg';
 
     var onSelectChange = function(){
       render(dropdown.value);
@@ -38,20 +39,18 @@
       return [[twoMonthAgo, oneMonthAgo], [oneMonthAgo, now]]
     }
 
-    var render = function(view) {
+    var render = function(identifier) {
       var dates = [];
 
-      if (view === 'comparative') {
+      if (identifier === COMPARATIVE) {
         dates = getDates();
       }
 
       ui.withDates.apply(ui, dates);
-      ui.view(document.getElementById('view1'), projectSlug, view);
+      ui.view(document.getElementById('view1'), identifier);
     }
 
-    var ui = new ReflectUI(REFLECT_API_TOKEN),
-        projectSlug = 'reflect-productivity',
-        viewSlug = 'simple-dashboard-view';
+    var ui = new ReflectUI();
 
     // http://www.colourlovers.com/palette/4344054/Mirlifloot
     ui.withColors({
@@ -62,7 +61,7 @@
       }
     });
 
-    render(viewSlug)
+    render(DASHBOARD)
 
     dropdown.addEventListener('change', onSelectChange);
   </script>
