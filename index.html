@@ -36,7 +36,7 @@
       var oneMonthAgo = moment().subtract(1, 'month').format();
       var now = moment().format();
 
-      return [[twoMonthAgo, oneMonthAgo], [oneMonthAgo, now]]
+      return [[oneMonthAgo, now], [twoMonthAgo, oneMonthAgo]]
     }
 
     var render = function(identifier) {
